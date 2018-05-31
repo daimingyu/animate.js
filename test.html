@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="animate.js"></script>
+</head>
+<body>
+	<div id="div" style="width:50px;height:50px;background-color: blue;margin : 100px;"></div>
+	<p id="p" style="width:300px;height:300px;background-color: red;margin-left: 300px;opacity:0;"></p>
+	<button id="button">opcity</button>
+	<button id="button1">p</button>
+	<button id="pause">pause</button>
+	<button id="start">start</button>
+	<script type="text/javascript">
+		var div = document.getElementById('div');
+		var p = document.getElementById('p');
+		var button = document.getElementById('button');
+		var button1 = document.getElementById('button1');
+		var pause = document.getElementById('pause');
+		var start= document.getElementById('start');
+		var p = document.getElementById('p');
+		button.onclick = function(){
+			div.animate({
+				stringRule : `
+					20% {
+				    	-webkit-transform: rotate3d(0, 0, 1, 15deg);
+				    	transform: rotate3d(0, 0, 1, 15deg);
+					}
+					40% {
+					    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+					    transform: rotate3d(0, 0, 1, -10deg);
+					}
+					60% {
+					    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+					    transform: rotate3d(0, 0, 1, 5deg);
+					}
+					80% {
+					    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+					    transform: rotate3d(0, 0, 1, -5deg);
+					}
+					to {
+					    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+					    transform: rotate3d(0, 0, 1, 0deg);
+					}
+				`,
+				easing:'ease-out',
+			});
+		}
+		button1.onclick = function(){
+			p.animate("dsad");
+		}
+		pause.onclick = function(){
+			div.pause();
+		}
+		start.onclick = function(){
+			div.start();
+		}
+		/*
+			'from {width:300px;} to {width: 400px;}'
+		 */
+		/*
+			{
+				"0%" : {
+					"width" : "300px"
+				},
+				"100%" : {
+					"width" : "400px"
+				}
+			}
+		*/
+	</script>
+</body>
+</html>
