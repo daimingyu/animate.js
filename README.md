@@ -1,15 +1,6 @@
 # animate.js
 
----
-title: 基于Animate.css的Javascript动画框架
-tags: [项目,动画]
-categories: [Project]
-date: 2018-05-29 21:19:43
----
-
 ![Alt text](https://raw.githubusercontent.com/daimingyu/photos/master/type.jpg)
-<!-- more -->
-___
 
 ## 一、前言
 
