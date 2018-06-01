@@ -8,6 +8,8 @@
 
 (function(){
 	
+	var beforeClassName = 'asd';
+
 	/**
 	 * [defaultSettings 默认设置]
 	 * @type {Object}
@@ -22,6 +24,47 @@
 		callback : null,
 		stringRule : '',
 		jsonRule : null
+	}
+	/**
+	 * [addClass 添加class]
+	 * @param {[type]} obj [description]
+	 * @param {[type]} cls [description]
+	 */
+	function addClass(obj, cls){
+	 	var obj_class = obj.className,//获取 class 内容.
+	  	blank = (obj_class != '') ? ' ' : '';//判断获取到的 class 是否为空, 如果不为空在前面加个'空格'.
+	  	added = obj_class + blank + cls;//组合原来的 class 和需要添加的 class.
+	  	obj.className = added;//替换原来的 class.
+	}
+	/**
+	 * [removeClass 删除class]
+	 * @param  {[type]} obj [description]
+	 * @param  {[type]} cls [description]
+	 * @return {[type]}     [description]
+	 */
+	function removeClass(obj, cls){
+		var obj_class = ' '+obj.className+' ';//获取 class 内容, 并在首尾各加一个空格. ex) 'abc    bcd' -> ' abc    bcd '
+		obj_class = obj_class.replace(/(\s+)/gi, ' '),//将多余的空字符替换成一个空格. ex) ' abc    bcd ' -> ' abc bcd '
+		removed = obj_class.replace(' '+cls+' ', ' ');//在原来的 class 替换掉首尾加了空格的 class. ex) ' abc bcd ' -> 'bcd '
+		removed = removed.replace(/(^\s+)|(\s+$)/g, '');//去掉首尾空格. ex) 'bcd ' -> 'bcd'
+		obj.className = removed;//替换原来的 class.
+	}
+	/**
+	 * [hasClass 判断是否有class]
+	 * @param  {[type]}  obj [description]
+	 * @param  {[type]}  cls [description]
+	 * @return {Boolean}     [description]
+	 */
+	function hasClass(obj, cls){
+		var obj_class = obj.className,//获取 class 内容.
+		obj_class_lst = obj_class.split(/\s+/);//通过split空字符将cls转换成数组.
+		x = 0;
+		for(x in obj_class_lst) {
+		if(obj_class_lst[x] == cls) {//循环数组, 判断是否包含cls
+		  return true;
+		}
+		}
+		return false;
 	}
 	/**
 	 * [insertAnimateStyle 插入style标签]
@@ -111,10 +154,10 @@
 	function randomClass(){
 		var res = '';
 
-		var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',0,1,2,3,4,5,6,7,8,9]
-		res += arr[parseInt(25*Math.random())];
-		for(var i=0;i<7;i++){
-			res += arr[parseInt(35*Math.random())];
+		var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','g','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9]
+		res += arr[parseInt(51*Math.random())];
+		for(var i=0;i<15;i++){
+			res += arr[parseInt(61*Math.random())];
 		}
 
 		return res;
@@ -133,7 +176,17 @@
 		
 		confirmParams(params);
 
+
+		//删除原来的className
+		if(hasClass(this,this.animateClassName)){
+			removeClass(this,this.animateClassName);
+		}
+
 		var name = randomClass();
+
+		//更新className
+		this.animateClassName = name;
+
 		var durtation = Boolean(params.durtation) === false?defaultSettings.durtation:params.durtation;
 		var easing = Boolean(params.easing) === false?defaultSettings.easing:params.easing;
 		var delay = Boolean(params.delay) === false?defaultSettings.delay:params.delay;
@@ -184,10 +237,10 @@
 		// 插入<style><style>
 		insertAnimateStyle(this,animateString);
 
-
-
 		//插入class
-		this.setAttribute('class',name);
+		// this.setAttribute('class',name);
+		
+		addClass(this,name)
 		
 
 		//callback
