@@ -4,7 +4,7 @@
 
 ## 一、前言
 
-Animate.css项目地址：[Daniel Eden - Animate.css](https://daneden.github.io/animate.css/)
+Animate.css项目地址：[Daniel Eden - Animate.css](https://daneden.github.io/animate.css/)<br>
 项目地址：[Dai Mingyu - Animate.js](https://raw.githubusercontent.com/daimingyu/photos)
 
 ## 二、项目功能
