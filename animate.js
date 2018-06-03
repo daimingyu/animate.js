@@ -7,8 +7,6 @@
  */
 
 (function(){
-	
-	var beforeClassName = 'asd';
 
 	/**
 	 * [defaultSettings 默认设置]
