@@ -1003,3 +1003,208 @@ jsonRule : {
 	}				
 }
 ```
+### (三)Bouncing Exits
+
+#### bounceOut(弹跳退出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	20% {
+	    -webkit-transform: scale3d(.9, .9, .9);
+	    transform: scale3d(.9, .9, .9);
+	}
+	50%, 55% {
+	    opacity: 1;
+	    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+	    transform: scale3d(1.1, 1.1, 1.1);
+	}
+	to {
+	    opacity: 0;
+	    -webkit-transform: scale3d(.3, .3, .3);
+	    transform: scale3d(.3, .3, .3);
+	}
+`
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+    "20%" : {
+	    "-webkit-transform" : "scale3d(.9, .9, .9)",
+	    "transform" : "scale3d(.9, .9, .9)"
+	},
+	"50%, 55% " : {
+	    "opacity" : 1,
+	    "-webkit-transform" : "scale3d(1.1, 1.1, 1.1)",
+	    "transform" : "scale3d(1.1, 1.1, 1.1)"
+	},
+	"to" : {
+	    "opacity" : 0,
+	    "-webkit-transform" : "scale3d(.3, .3, .3)",
+	    "transform" : "scale3d(.3, .3, .3)"
+	}				
+}
+```
+
+#### bounceOutDown(向下弹跳退出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	20% {
+	    -webkit-transform: translate3d(0, 10px, 0);
+	    transform: translate3d(0, 10px, 0);
+	}
+	40%, 45% {
+	    opacity: 1;
+	    -webkit-transform: translate3d(0, -20px, 0);
+	    transform: translate3d(0, -20px, 0);
+	}
+	to {
+	    opacity: 0;
+	    -webkit-transform: translate3d(0, 2000px, 0);
+	    transform: translate3d(0, 2000px, 0);
+	}
+`
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+	"20%" : {
+	    "-webkit-transform" : "translate3d(0, 10px, 0)",
+	    "transform" : "translate3d(0, 10px, 0)"
+	},
+	"40%, 45%" : {
+	    "opacity" : 1,
+	    "-webkit-transform" : "translate3d(0, -20px, 0)",
+	    "transform" : "translate3d(0, -20px, 0)"
+	},
+	"to" : {
+	    "opacity" : 0,
+	    "-webkit-transform" : "translate3d(0, 2000px, 0)",
+	    "transform" : "translate3d(0, 2000px, 0)"
+	}				
+}
+```
+
+#### bounceOutLeft(向左弹跳退出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	20% {
+	    opacity: 1;
+	    -webkit-transform: translate3d(20px, 0, 0);
+	    transform: translate3d(20px, 0, 0);
+	}
+	to {
+	    opacity: 0;
+	    -webkit-transform: translate3d(-2000px, 0, 0);
+	    transform: translate3d(-2000px, 0, 0);
+	}
+`
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+	"20%" : {
+	    "opacity": 1,
+	    "-webkit-transform" : "translate3d(20px, 0, 0)",
+	    "transform" : "translate3d(20px, 0, 0)"
+	},
+	"to" : {
+	    "opacity" : 0,
+	    "-webkit-transform" : "translate3d(-2000px, 0, 0)",
+	    "transform" : "translate3d(-2000px, 0, 0)"
+	}				
+}
+```
+
+#### bounceOutRight(向右弹跳退出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	20% {
+	    opacity: 1;
+	    -webkit-transform: translate3d(-20px, 0, 0);
+	    transform: translate3d(-20px, 0, 0);
+	}
+	to {
+	    opacity: 0;
+	    -webkit-transform: translate3d(2000px, 0, 0);
+	    transform: translate3d(2000px, 0, 0);
+	}
+`
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+	"20%" : {
+	    "opacity" : 1,
+	    "-webkit-transform" : "translate3d(-20px, 0, 0)",
+	    "transform" : "translate3d(-20px, 0, 0)"
+	},
+	"to" : {
+	    "opacity" : 0,
+	    "-webkit-transform" : "translate3d(2000px, 0, 0)",
+	    "transform" : "translate3d(2000px, 0, 0)"
+	}				
+}
+```
+
+#### bounceOutUp(向上弹跳退出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	20% {
+	    -webkit-transform: translate3d(0, -10px, 0);
+	    transform: translate3d(0, -10px, 0);
+	}
+	40%, 45% {
+	    opacity: 1;
+	    -webkit-transform: translate3d(0, 20px, 0);
+	    transform: translate3d(0, 20px, 0);
+	}
+	to {
+	    opacity: 0;
+	    -webkit-transform: translate3d(0, -2000px, 0);
+	    transform: translate3d(0, -2000px, 0);
+	}
+`
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+	"20%" : {
+	    "-webkit-transform" : "translate3d(0, -10px, 0)",
+	    "transform" : "translate3d(0, -10px, 0)"
+	},
+	"40%, 45%" : {
+	    "opacity" : 1,
+	    "-webkit-transform" : "translate3d(0, 20px, 0)",
+	    "transform" : "translate3d(0, 20px, 0)"
+	},
+	"to" : {
+	    "opacity" : 0,
+	    "-webkit-transform" : "translate3d(0, -2000px, 0)",
+	    "transform" : "translate3d(0, -2000px, 0)"
+	}
+}
+```
