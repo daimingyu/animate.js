@@ -1,5 +1,5 @@
 /*
- * Animate.js v1.0.0
+ * Animate.js v1.0.1
  * JavaScript Animation Engine
  * Copyright (c) 2018 Mingyu Dai
  * http://isiqi.me
