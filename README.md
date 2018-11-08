@@ -1208,3 +1208,32 @@ jsonRule : {
 	}
 }
 ```
+### (四)Fading Entrances
+
+#### fadeIn(淡出)
+
+##### 1、字符串规则
+
+```
+stringRule : `
+	from {
+	    opacity: 0;
+	}
+  	to {
+	    opacity: 1;
+  	}
+`,
+```
+
+##### 2、json规则
+
+```
+jsonRule : {
+	"from" : {
+	    "opacity" : 0
+	},
+  	"to" : {
+	    "opacity" : 1
+  	}
+},
+```
